@@ -45,6 +45,7 @@ export const types = {
   eof: new TokenType("eof"),
 
   // Punctuation token types.
+  questionBracketL: new TokenType("?[", {beforeExpr: true, startsExpr: true}),
   bracketL: new TokenType("[", {beforeExpr: true, startsExpr: true}),
   bracketR: new TokenType("]"),
   braceL: new TokenType("{", {beforeExpr: true, startsExpr: true}),
@@ -59,6 +60,8 @@ export const types = {
   doubleColon: new TokenType("::", beforeExpr),
   dot: new TokenType("."),
   question: new TokenType("?", beforeExpr),
+  questionDot: new TokenType("?."),
+  doubleQuestion: new TokenType("??", beforeExpr),
   arrow: new TokenType("=>", beforeExpr),
   template: new TokenType("template"),
   ellipsis: new TokenType("...", beforeExpr),

@@ -857,10 +857,11 @@ interface MemberExpression <: Expression, Pattern {
   object: Expression | Super;
   property: Expression;
   computed: boolean;
+  conditional: boolean;
 }
 ```
 
-A member expression. If `computed` is `true`, the node corresponds to a computed (`a[b]`) member expression and `property` is an `Expression`. If `computed` is `false`, the node corresponds to a static (`a.b`) member expression and `property` is an `Identifier`.
+A member expression. If `computed` is `true`, the node corresponds to a computed (`a[b]`) member expression and `property` is an `Expression`. If `computed` is `false`, the node corresponds to a static (`a.b`) member expression and `property` is an `Identifier`. The `conditional` flags indecates that the object must be defined before the memeber expression can be called. Otherwise it returns undefined.
 
 ### BindExpression
 
