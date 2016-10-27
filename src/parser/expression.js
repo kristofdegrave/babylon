@@ -162,6 +162,13 @@ pp.parseConditional = function (expr, noIn, startPos, startLoc) {
     node.alternate = this.parseMaybeAssign(noIn);
     return this.finishNode(node, "ConditionalExpression");
   }
+  else if (this.eat(tt.doubleQuestion)){
+    let node = this.startNodeAt(startPos, startLoc);
+    node.test = expr;
+    node.consequent = expr; //this.parseMaybeAssign();
+    node.alternate = this.parseMaybeAssign();
+    return this.finishNode(node, "ConditionalExpression");
+  }
   return expr;
 };
 
