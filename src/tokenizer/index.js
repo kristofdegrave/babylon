@@ -287,18 +287,18 @@ export default class Tokenizer {
 
   readToken_question() { // '?'
     let next = this.input.charCodeAt(this.state.pos + 1);
-    if(next === 46){ // 46 = question '.'
+    if (next === 46) { // 46 = question '.'
       this.state.pos += 2;
       return this.finishToken(tt.questionDot);
     }
-    else if(next === 63){ // 63 = question '?'
+    else if (next === 63) { // 63 = question '?'
       this.state.pos += 2;
       return this.finishToken(tt.doubleQuestion);
-    } 
-    else if(next === 91){ // 91 = question '['
+    }
+    else if (next === 91) { // 91 = question '['
       this.state.pos += 2;
       return this.finishToken(tt.questionBracketL);
-    } 
+    }
     else {
       ++this.state.pos;
       return this.finishToken(tt.question);
@@ -445,7 +445,7 @@ export default class Tokenizer {
           return this.finishToken(tt.colon);
         }
 
-      case 63: return this.readToken_question() // ++this.state.pos; return this.finishToken(tt.question);
+      case 63: return this.readToken_question(); // ++this.state.pos; return this.finishToken(tt.question);
       case 64: ++this.state.pos; return this.finishToken(tt.at);
 
       case 96: // '`'
